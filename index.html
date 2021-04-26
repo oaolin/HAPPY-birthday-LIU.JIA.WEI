@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<body bgcolor="#3C3C3C">
+<body bgcolor="#3C3C3C" >
 <center>
 <img src="happy.jpg" width="95%" height="95%" border="10" >
 </center><br>
@@ -15,7 +15,10 @@
             </ins></strong>
             <table>
                 <tr bgcolor="#e2e2e2" valign="top" font-weight: bolder ><td>
-                    To:哞~ ~ 生日快樂ㄚ 祝妳考上理想的大學+_+  賣哥捆  乖乖上課蛤 
+                    To:哞~ ~ 一年一次的生日即將到來，希望在高中以<br>
+                    來這次是最開心最難忘的，雖然二類的女生並不多但<br>
+                    都還蠻好相處，妳在我們班也玩的挺開心的，祝妳考<br>
+                    上妳心目中的大學，賣哥捆(誤 __乖乖上課蛤^o^
                     </td>
                 </tr>
             </table>
@@ -160,11 +163,98 @@
     </p>
 </center><br>
 
+<!--黃姿諭-->
+<center style="border:6px solid #fcfcfcf3">
+    <p color="#7B7B7B" >
+        <img src="4.jpg" width="20%" height="20%" align="center" style="border:6px solid #ffffff62" >
+            <strong  bgcolor="#e2e2e2"><ins><br>
+                <h1 style='color: #9ce3ec;'> 我是黃姿諭 </h1>
+            </ins></strong>
+            <table>
+                <tr bgcolor="#e2e2e2" valign="top" font-weight: bolder ><td>
+                    生日快樂  佳葳 恭喜你17歲啦 <br>
+                    接下來的日子不管是跳舞還是課業都要好好加油喲！
+                    </td>
+                </tr> 
+            </table> 
+    </p>
+</center><br>
+
 
 <h4 style='color: #FF2D2D'>[作者約:]希望這張卡片可以留久一點,我做超久的,也是第一次自己做網頁,超爽的!! 希望妳會喜歡=_= </h4> 
 <h4 style='color: #d1ff2d'>猜猜作者是誰~ 你懂得!!!</h4>
 <h4 style='color: #FF2D2D'>電腦跟手機版面有些不一樣所以會不會不太一樣ㄛ</h4> 
 
-
+<script type="text/javascript">
+    function toSpans(span) {
+      var str=span.firstChild.data;
+      var a=str.length;
+      span.removeChild(span.firstChild);
+      for(var i=0; i<a; i++) {
+        var theSpan=document.createElement("SPAN");
+        theSpan.appendChild(document.createTextNode(str.charAt(i)));
+        span.appendChild(theSpan);
+      }
+    }
+    
+    function CaihongSpan(span, hue, deg, brt, spd, hspd) {
+        this.deg=(deg==null?360:Math.abs(deg));
+        this.hue=(hue==null?0:Math.abs(hue)%360);
+        this.hspd=(hspd==null?3:Math.abs(hspd)%360);
+        this.length=span.firstChild.data.length;
+        this.span=span;
+        this.speed=(spd==null?50:Math.abs(spd));
+        this.hInc=this.deg/this.length;
+        this.brt=(brt==null?255:Math.abs(brt)%256);
+        this.timer=null;
+        toSpans(span);
+        this.moveCaihong();
+    }
+    
+    CaihongSpan.prototype.moveCaihong = function() {
+      if(this.hue>359) this.hue-=360;
+      var color;
+      var b=this.brt;
+      var a=this.length;
+      var h=this.hue;
+    
+      for(var i=0; i<a; i++) {
+    
+        if(h>359) h-=360;
+    
+        if(h<60) { color=Math.floor(((h)/60)*b); red=b;grn=color;blu=0; }
+        else if(h<120) { color=Math.floor(((h-60)/60)*b); red=b-color;grn=b;blu=0; }
+        else if(h<180) { color=Math.floor(((h-120)/60)*b); red=0;grn=b;blu=color; }
+        else if(h<240) { color=Math.floor(((h-180)/60)*b); red=0;grn=b-color;blu=b; }
+        else if(h<300) { color=Math.floor(((h-240)/60)*b); red=color;grn=0;blu=b; }
+        else { color=Math.floor(((h-300)/60)*b); red=b;grn=0;blu=b-color; }
+    
+        h+=this.hInc;
+    
+        this.span.childNodes[i].style.color="rgb("+red+", "+grn+", "+blu+")";
+      }
+      this.hue+=this.hspd;
+    }
+    </script>
+    <br>
+    <br>
+    <div align="center">
+        <h1 id="ch1">>_<  生日快樂  >_<</h1>
+        </div>
+        <script type="text/javascript">
+        var r1=document.getElementById("ch1");
+        var myCaihongSpan=new CaihongSpan(r1, 0, 360, 255, 50, 18);
+        myCaihongSpan.timer=window.setInterval("myCaihongSpan.moveCaihong()", myCaihongSpan.speed);
+        </script>
+        
+        <div align="center">
+        <p id="ch2">製作於[2021/4/25~26] __ by.蕭兆勛</p>
+        </div>
+        <script type="text/javascript">
+        var r2=document.getElementById("ch2");
+        var myCaihongSpan2=new CaihongSpan(r2, 0, 360, 255, 50, 348);
+        myCaihongSpan2.timer=window.setInterval("myCaihongSpan2.moveCaihong()", myCaihongSpan2.speed);
+    </script>
+            
 </body>
 </html>
